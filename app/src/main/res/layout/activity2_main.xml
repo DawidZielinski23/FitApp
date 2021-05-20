@@ -35,11 +35,9 @@
 
     <TextView
         android:id="@+id/activity2_main_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="61dp"
+        android:layout_width="416dp"
+        android:layout_height="59dp"
+        android:background="@color/blue_dark"
         android:text="TRENING SIŁOWY"
         android:textAlignment="center"
         android:textColor="@color/white"
