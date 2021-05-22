@@ -1,11 +1,14 @@
 package com.example.myapplication
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 
 class samples_adapter(private val context:Context, private val activities:ArrayList<samples_row>):BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
@@ -13,6 +16,9 @@ class samples_adapter(private val context:Context, private val activities:ArrayL
         single_row.findViewById<TextView>(R.id.name).setText(activities[position].name)
         single_row.findViewById<TextView>(R.id.value).setText(activities[position].value)
         single_row.findViewById<TextView>(R.id.description).setText(activities[position].description)
+        single_row.findViewById<Button>(R.id.check).setOnClickListener() {
+            activities[position].start_activity=true
+        }
         return single_row
     }
 
