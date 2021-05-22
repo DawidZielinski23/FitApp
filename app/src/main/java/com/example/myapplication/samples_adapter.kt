@@ -12,6 +12,7 @@ class samples_adapter(private val context:Context, private val activities:ArrayL
         val single_row = LayoutInflater.from(context).inflate(R.layout.activity2_samples_row, parent,false)
         single_row.findViewById<TextView>(R.id.name).setText(activities[position].name)
         single_row.findViewById<TextView>(R.id.value).setText(activities[position].value)
+        single_row.findViewById<TextView>(R.id.description).setText(activities[position].description)
         return single_row
     }
 

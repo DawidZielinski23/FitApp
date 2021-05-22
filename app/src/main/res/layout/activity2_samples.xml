@@ -13,7 +13,6 @@
         android:layout_width="412dp"
         android:layout_height="94dp"
         android:background="@color/blue_dark"
-        android:text="PRZYKŁADOWE TRNENINGI"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="36sp"
@@ -52,7 +51,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="40dp"
-        android:text="Klikająć poniższy przycisk możesz wygenerować trening ogólnorozwojwy uwzględniający różne partie mieśni"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -67,7 +65,6 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="101dp"
-        android:text="Wybierz rodzaj treningu"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -80,8 +77,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="120dp"
+        android:background="@color/white"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity2_samples_label2" />
+
+    <Button
+        android:id="@+id/activity2_samples_choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="WYBIERZ"
+        app:layout_constraintStart_toEndOf="@+id/activity2_samples_spinner"
         app:layout_constraintTop_toBottomOf="@+id/activity2_samples_label2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
