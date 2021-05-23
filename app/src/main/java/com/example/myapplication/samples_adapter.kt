@@ -16,8 +16,8 @@ class samples_adapter(private val context:Context, private val activities:ArrayL
         single_row.findViewById<TextView>(R.id.name).setText(activities[position].name)
         single_row.findViewById<TextView>(R.id.value).setText(activities[position].value)
         single_row.findViewById<TextView>(R.id.description).setText(activities[position].description)
-        single_row.findViewById<Button>(R.id.check).setOnClickListener() {
-            activities[position].start_activity=true
+        single_row.findViewById<Button>(R.id.check).setOnClickListener(){
+            activities[position].condition=true
         }
         return single_row
     }

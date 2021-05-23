@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -132,6 +133,18 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
             this.binding.activity2SamplesList.adapter = auto_adapter
             message.show()
         }
+        binding.activity2SamplesList.setOnItemClickListener { _, _, position, _ ->
+            var intent = Intent(this, Activity2_record::class.java)
+            //var storage:ArrayList<samples_row> = ArrayList()
+            //var storage = binding.activity2SamplesList.getItemAtPosition(position)
+            //intent.putExtra("id",storage.toString())
+            //this.startActivity(intent);
+            val selectedItem = binding.activity2SamplesList.getItemAtPosition(position)
+            intent.putExtra("item",selectedItem.toString())
+            startActivity(intent)
+        }
+
+
 
 
     }
@@ -144,6 +157,5 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
         if(parent==binding.activity2SamplesSpinner)
             i=parent.selectedItemPosition+1
     }
-
 
 }
