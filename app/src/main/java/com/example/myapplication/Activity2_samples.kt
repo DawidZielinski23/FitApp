@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Adapter
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -27,12 +28,14 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity2_samples)
         binding=DataBindingUtil.setContentView(this, R.layout.activity2_samples)
-        val trainngs: Array<String> = arrayOf("Trening nóg",
-        "Trening barków",
-        "Trening ramion",
-        "Trening klatki",
-        "Trening pleców",
-        "Trening brzucha")
+        val trainngs: Array<String> = arrayOf(
+                "Wybierz trening",
+                "Trening nóg",
+                "Trening barków",
+                "Trening ramion",
+                "Trening klatki",
+                "Trening pleców",
+                "Trening brzucha")
         var adapter_trainings = ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,trainngs)
         binding.activity2SamplesSpinner.adapter = adapter_trainings
         binding.activity2SamplesSpinner.onItemSelectedListener =this
@@ -40,53 +43,53 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
         binding.activity2SamplesLabel2.setText("Wybierz rodzaj treningu")
         binding.activity2SamplesText.setText("Klikająć poniższy przycisk możesz wygenerować trening ogólnorozwojwy uwzględniający różne partie mieśni")
 
-        legs.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1",false))
-        legs.add(samples_row("Przysiady ze sztangą","4/10","Ilość serii/powtórzeń:","l1",false))
-        legs.add(samples_row("Wykroki ze sztangiełkami","4/10","Ilość serii/powtórzeń:","l2",false))
-        legs.add(samples_row("Martwy ciąg na prostych nogach","4/10","Ilość serii/powtórzeń:","l3",false))
-        legs.add(samples_row("Wspięcia na łydkach","4/12","Ilość serii/powtórzeń:","l4",false))
-        legs.add(samples_row("Unoszenie bioder ze sztangą","3/12","Ilość serii/powtórzeń:","l5",false))
-        legs.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2",false))
+        legs.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1"))
+        legs.add(samples_row("Przysiady ze sztangą","4/10","Ilość serii/powtórzeń:","l1"))
+        legs.add(samples_row("Wykroki ze sztangiełkami","4/10","Ilość serii/powtórzeń:","l2"))
+        legs.add(samples_row("Martwy ciąg na prostych nogach","4/10","Ilość serii/powtórzeń:","l3"))
+        legs.add(samples_row("Wspięcia na łydkach","4/12","Ilość serii/powtórzeń:","l4"))
+        legs.add(samples_row("Unoszenie bioder ze sztangą","3/12","Ilość serii/powtórzeń:","l5"))
+        legs.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2"))
 
-        shoulders.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1",false))
-        shoulders.add(samples_row("Wyciskanie żołnierskie","4/10","Ilość serii/powtórzeń:","sh1",false))
-        shoulders.add(samples_row("Arnoldki","3/12","Ilość serii/powtórzeń:","sh2",false))
-        shoulders.add(samples_row("Wyciskanie ze sztangą z tyłu","4/10","Ilość serii/powtórzeń:","sh3",false))
-        shoulders.add(samples_row("Unoszenie ramion ze sztangełkami","3/12","Ilość serii/powtórzeń:","sh4",false))
-        shoulders.add(samples_row("Odwodzenie raminon w bok","3/12","Ilość serii/powtórzeń:","sh5",false))
-        shoulders.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2",false))
+        shoulders.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1"))
+        shoulders.add(samples_row("Wyciskanie żołnierskie","4/10","Ilość serii/powtórzeń:","sh1"))
+        shoulders.add(samples_row("Arnoldki","3/12","Ilość serii/powtórzeń:","sh2"))
+        shoulders.add(samples_row("Wyciskanie ze sztangą z tyłu","4/10","Ilość serii/powtórzeń:","sh3"))
+        shoulders.add(samples_row("Unoszenie ramion ze sztangełkami","3/12","Ilość serii/powtórzeń:","sh4"))
+        shoulders.add(samples_row("Odwodzenie raminon w bok","3/12","Ilość serii/powtórzeń:","sh5"))
+        shoulders.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2"))
 
-        arms.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1",false))
-        arms.add(samples_row("Ugianie ramion ze sztangą","4/10","Ilość serii/powtórzeń:","a1",false))
-        arms.add(samples_row("Uginanie ramion ze sztangełkami","3/12","Ilość serii/powtórzeń:","a2",false))
-        arms.add(samples_row("Wyciskanie francuskie sztangi","4/10","Ilość serii/powtórzeń:","a3",false))
-        arms.add(samples_row("Unoszenie ramion ze sztangełkami","3/12","Ilość serii/powtórzeń:","a4",false))
-        arms.add(samples_row("Pompki na poręczach","4/8","Ilość serii/powtórzeń:","a5",false))
-        arms.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2",false))
+        arms.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1"))
+        arms.add(samples_row("Ugianie ramion ze sztangą","4/10","Ilość serii/powtórzeń:","a1"))
+        arms.add(samples_row("Uginanie ramion ze sztangełkami","3/12","Ilość serii/powtórzeń:","a2"))
+        arms.add(samples_row("Wyciskanie francuskie sztangi","4/10","Ilość serii/powtórzeń:","a3"))
+        arms.add(samples_row("Unoszenie ramion ze sztangełkami","3/12","Ilość serii/powtórzeń:","a4"))
+        arms.add(samples_row("Pompki na poręczach","4/8","Ilość serii/powtórzeń:","a5"))
+        arms.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2"))
 
-        chest.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1",false))
-        chest.add(samples_row("Wyciskanie sztangi na prostej łąwce","4/10","Ilość serii/powtórzeń:","c1",false))
-        chest.add(samples_row("Wyickanie sztangi na dodatniej ławce","4/10","Ilość serii/powtórzeń:","c2",false))
-        chest.add(samples_row("Wyciskanie sztangi na ujemnej ławce","4/10","Ilość serii/powtórzeń:","c3",false))
-        chest.add(samples_row("Ropiętki sztangiełkami","3/12","Ilość serii/powtórzeń:","c4",false))
-        chest.add(samples_row("Przenoszenie sztangiełki nad głowę","3/12","Ilość serii/powtórzeń:","c5",false))
-        chest.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2",false))
+        chest.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1"))
+        chest.add(samples_row("Wyciskanie sztangi na prostej łąwce","4/10","Ilość serii/powtórzeń:","c1"))
+        chest.add(samples_row("Wyickanie sztangi na dodatniej ławce","4/10","Ilość serii/powtórzeń:","c2"))
+        chest.add(samples_row("Wyciskanie sztangi na ujemnej ławce","4/10","Ilość serii/powtórzeń:","c3"))
+        chest.add(samples_row("Ropiętki sztangiełkami","3/12","Ilość serii/powtórzeń:","c4"))
+        chest.add(samples_row("Przenoszenie sztangiełki nad głowę","3/12","Ilość serii/powtórzeń:","c5"))
+        chest.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2"))
 
-        back.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1",false))
-        back.add(samples_row("Wiosłowanie sztangą","4/10","Ilość serii/powtórzeń:","c1",false))
-        back.add(samples_row("Wiosłowanie sztangiełkami","3/12","Ilość serii/powtórzeń:","c2",false))
-        back.add(samples_row("Martwy ciąg","4/10","Ilość serii/powtórzeń:","c3",false))
-        back.add(samples_row("Podciągnaie na drążku","4/8","Ilość serii/powtórzeń:","c4",false))
-        back.add(samples_row("Unoszenie tułowia na ławce rzymskiej","4/8","Ilość serii/powtórzeń:","c5",false))
-        back.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2",false))
+        back.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1"))
+        back.add(samples_row("Wiosłowanie sztangą","4/10","Ilość serii/powtórzeń:","c1"))
+        back.add(samples_row("Wiosłowanie sztangiełkami","3/12","Ilość serii/powtórzeń:","c2"))
+        back.add(samples_row("Martwy ciąg","4/10","Ilość serii/powtórzeń:","c3"))
+        back.add(samples_row("Podciągnaie na drążku","4/8","Ilość serii/powtórzeń:","c4"))
+        back.add(samples_row("Unoszenie tułowia na ławce rzymskiej","4/8","Ilość serii/powtórzeń:","c5"))
+        back.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2"))
 
-        stomach.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1",false))
-        stomach.add(samples_row("Brzuszki na ławce skośnej","Ilość serii/powtórzeń:","4/15","st1",false))
-        stomach.add(samples_row("Deska","3/1 minuta","Ilość serii/powtórzeń:","st2",false))
-        stomach.add(samples_row("Spięcie brzucha na maszynie","4/10","Ilość serii/powtórzeń:","st3",false))
-        stomach.add(samples_row("Skłony","4/12","Ilość serii/powtórzeń:","st4",false))
-        stomach.add(samples_row("Unoszenie nóg w zwisie","4/12","Ilość serii/powtórzeń:","st5",false))
-        stomach.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2",false))
+        stomach.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1"))
+        stomach.add(samples_row("Brzuszki na ławce skośnej","Ilość serii/powtórzeń:","4/15","st1"))
+        stomach.add(samples_row("Deska","3/1 minuta","Ilość serii/powtórzeń:","st2"))
+        stomach.add(samples_row("Spięcie brzucha na maszynie","4/10","Ilość serii/powtórzeń:","st3"))
+        stomach.add(samples_row("Skłony","4/12","Ilość serii/powtórzeń:","st4"))
+        stomach.add(samples_row("Unoszenie nóg w zwisie","4/12","Ilość serii/powtórzeń:","st5"))
+        stomach.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2"))
         val adapter_activity1 = samples_adapter(this,legs)
         val adapter_activity2 = samples_adapter(this,shoulders)
         val adapter_activity3 = samples_adapter(this,arms)
@@ -113,9 +116,10 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
         }
         val duration = Toast.LENGTH_SHORT
         val message= Toast.makeText(this,"Wygenerwoano trening",duration)
+        val auto:ArrayList<samples_row> = ArrayList()
         binding.activity2SamplesAuto.setOnClickListener(){
-            val auto:ArrayList<samples_row> = ArrayList()
-            auto.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1",false))
+
+            auto.add(legs.get(0))
             var j:Int =Random.nextInt(1,5)
             auto.add(legs.get(j))
             j=Random.nextInt(1,5)
@@ -128,19 +132,25 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
             auto.add(back.get(j))
             j=Random.nextInt(1,5)
             auto.add(stomach.get(j))
-            auto.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2",false))
+            auto.add(legs.get(6))
+            i=7
             val auto_adapter =samples_adapter(this,auto)
             this.binding.activity2SamplesList.adapter = auto_adapter
             message.show()
         }
-        binding.activity2SamplesList.setOnItemClickListener { _, _, position, _ ->
+        binding.activity2SamplesList.setOnItemClickListener{ parent:AdapterView<*> ?, view: View?, position :Int, id: Long ->
             var intent = Intent(this, Activity2_record::class.java)
-            //var storage:ArrayList<samples_row> = ArrayList()
-            //var storage = binding.activity2SamplesList.getItemAtPosition(position)
-            //intent.putExtra("id",storage.toString())
-            //this.startActivity(intent);
-            val selectedItem = binding.activity2SamplesList.getItemAtPosition(position)
-            intent.putExtra("item",selectedItem.toString())
+            var storage = ""
+            when(i){
+                1 -> storage=legs[position].Id
+                2 -> storage=shoulders[position].Id
+                3 -> storage=arms[position].Id
+                4 -> storage=chest[position].Id
+                5 -> storage=back[position].Id
+                6 -> storage=stomach[position].Id
+                7 -> storage=auto[position].Id
+            }
+            intent.putExtra("id",storage)
             startActivity(intent)
         }
 
@@ -155,7 +165,7 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         if(parent==binding.activity2SamplesSpinner)
-            i=parent.selectedItemPosition+1
+            i=parent.selectedItemPosition
     }
 
 }

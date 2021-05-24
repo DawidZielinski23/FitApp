@@ -12,7 +12,7 @@ class Activity2_record: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity2_record)
         binding= DataBindingUtil.setContentView(this, R.layout.activity2_record)
-        val text:String = intent.getStringExtra("Id").toString()
+        val text = intent.getStringExtra("id").toString()
         binding.textView.setText(text)
     }
 }
