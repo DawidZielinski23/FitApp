@@ -30,5 +30,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/actvitiy2_library_edit"
+        android:layout_width="285dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity2_library_label" />
+
+    <Button
+        android:id="@+id/activity2_library_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/green_light"
+        android:text="SZUKAJ"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity2_library_label" />
+
+    <Button
+        android:id="@+id/activity2_library_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KASUJ"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity2_library_search" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
