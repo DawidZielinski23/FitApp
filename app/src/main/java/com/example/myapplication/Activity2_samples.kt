@@ -118,7 +118,8 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
         val message= Toast.makeText(this,"Wygenerwoano trening",duration)
         val auto:ArrayList<samples_row> = ArrayList()
         binding.activity2SamplesAuto.setOnClickListener(){
-
+            if(!auto.isEmpty())
+                auto.clear()
             auto.add(legs.get(0))
             var j:Int =Random.nextInt(1,5)
             auto.add(legs.get(j))
@@ -142,15 +143,15 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
             var intent = Intent(this, Activity2_record::class.java)
             var storage = ""
             when(i){
-                1 -> storage=legs[position].Id
-                2 -> storage=shoulders[position].Id
-                3 -> storage=arms[position].Id
-                4 -> storage=chest[position].Id
-                5 -> storage=back[position].Id
-                6 -> storage=stomach[position].Id
-                7 -> storage=auto[position].Id
+                1 -> storage=legs[position].name
+                2 -> storage=shoulders[position].name
+                3 -> storage=arms[position].name
+                4 -> storage=chest[position].name
+                5 -> storage=back[position].name
+                6 -> storage=stomach[position].name
+                7 -> storage=auto[position].name
             }
-            intent.putExtra("id",storage)
+            intent.putExtra("name",storage)
             startActivity(intent)
         }
 

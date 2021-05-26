@@ -6,6 +6,7 @@ import android.text.Editable
 import android.view.View
 import android.widget.AdapterView
 import android.widget.EditText
+import android.widget.Filter
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -59,8 +60,8 @@ class Activity2_library: AppCompatActivity() {
         binding.activity2LibraryList.adapter=activities_adapter
         binding.activity2LibraryList.setOnItemClickListener{ parent: AdapterView<*>?, view: View?, position :Int, id: Long ->
             var intent = Intent(this, Activity2_record::class.java)
-            var storage:String = activities[position].Id
-            intent.putExtra("id",storage)
+            var storage:String = activities[position].name
+            intent.putExtra("name",storage)
             startActivity(intent)
         }
         binding.activity2LibraryDelete.setVisibility(View.INVISIBLE)
@@ -69,8 +70,8 @@ class Activity2_library: AppCompatActivity() {
         binding.activity2LibrarySearch.setOnClickListener(){
             if(!searching.isEmpty())
                 searching.clear()
-            for (i in 0..activities.size) {
-                if (activities[i].name==search) {
+            for (i in activities.indices) {
+                if (activities[i].name.equals(search)) {
                     searching.add(activities.get(i))
                 }
             }
