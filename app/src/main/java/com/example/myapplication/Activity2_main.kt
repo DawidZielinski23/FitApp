@@ -26,5 +26,9 @@ class Activity2_main : AppCompatActivity() {
             val intent2_samples = Intent(this,Activity2_samples::class.java)
             startActivity(intent2_samples)
         }
+        binding.activity2MainAdvice.setOnClickListener(){
+            val intent3_advice = Intent(this,Activity2_advice::class.java)
+            startActivity(intent3_advice)
+        }
     }
 }
