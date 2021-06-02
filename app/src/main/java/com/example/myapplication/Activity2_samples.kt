@@ -28,7 +28,7 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity2_samples)
         binding=DataBindingUtil.setContentView(this, R.layout.activity2_samples)
-        val trainngs: Array<String> = arrayOf(
+        val trainings: Array<String> = arrayOf(
                 "Wybierz trening",
                 "Trening nóg",
                 "Trening barków",
@@ -36,7 +36,7 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
                 "Trening klatki",
                 "Trening pleców",
                 "Trening brzucha")
-        var adapter_trainings = ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,trainngs)
+        var adapter_trainings = ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,trainings)
         binding.activity2SamplesSpinner.adapter = adapter_trainings
         binding.activity2SamplesSpinner.onItemSelectedListener =this
         binding.activity2SamplesLabel.setText("PRZYKŁADOWE TRNENINGI")
@@ -53,7 +53,7 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
 
         shoulders.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1"))
         shoulders.add(samples_row("Wyciskanie żołnierskie","4/10","Ilość serii/powtórzeń:","sh1"))
-        shoulders.add(samples_row("Arnoldki","3/12","Ilość serii/powtórzeń:","sh2"))
+        shoulders.add(samples_row("Wznosy ramion","3/12","Ilość serii/powtórzeń:","sh2"))
         shoulders.add(samples_row("Wyciskanie ze sztangą z tyłu","4/10","Ilość serii/powtórzeń:","sh3"))
         shoulders.add(samples_row("Unoszenie ramion ze sztangełkami","3/12","Ilość serii/powtórzeń:","sh4"))
         shoulders.add(samples_row("Odwodzenie raminon w bok","3/12","Ilość serii/powtórzeń:","sh5"))
@@ -62,14 +62,14 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
         arms.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1"))
         arms.add(samples_row("Ugianie ramion ze sztangą","4/10","Ilość serii/powtórzeń:","a1"))
         arms.add(samples_row("Uginanie ramion ze sztangełkami","3/12","Ilość serii/powtórzeń:","a2"))
-        arms.add(samples_row("Wyciskanie francuskie sztangi","4/10","Ilość serii/powtórzeń:","a3"))
+        arms.add(samples_row("Wyciskanie francuskie sztangą","4/10","Ilość serii/powtórzeń:","a3"))
         arms.add(samples_row("Unoszenie ramion ze sztangełkami","3/12","Ilość serii/powtórzeń:","a4"))
         arms.add(samples_row("Pompki na poręczach","4/8","Ilość serii/powtórzeń:","a5"))
         arms.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2"))
 
         chest.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1"))
         chest.add(samples_row("Wyciskanie sztangi na prostej łąwce","4/10","Ilość serii/powtórzeń:","c1"))
-        chest.add(samples_row("Wyickanie sztangi na dodatniej ławce","4/10","Ilość serii/powtórzeń:","c2"))
+        chest.add(samples_row("Wycikanie sztangi na dodatniej ławce","4/10","Ilość serii/powtórzeń:","c2"))
         chest.add(samples_row("Wyciskanie sztangi na ujemnej ławce","4/10","Ilość serii/powtórzeń:","c3"))
         chest.add(samples_row("Ropiętki sztangiełkami","3/12","Ilość serii/powtórzeń:","c4"))
         chest.add(samples_row("Przenoszenie sztangiełki nad głowę","3/12","Ilość serii/powtórzeń:","c5"))
@@ -84,10 +84,10 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
         back.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2"))
 
         stomach.add(samples_row("Rozgrzewka","15 minut","Czas trwania","r1"))
-        stomach.add(samples_row("Brzuszki na ławce skośnej","Ilość serii/powtórzeń:","4/15","st1"))
+        stomach.add(samples_row("Brzuszki","Ilość serii/powtórzeń:","4/15","st1"))
         stomach.add(samples_row("Deska","3/1 minuta","Ilość serii/powtórzeń:","st2"))
         stomach.add(samples_row("Spięcie brzucha na maszynie","4/10","Ilość serii/powtórzeń:","st3"))
-        stomach.add(samples_row("Skłony","4/12","Ilość serii/powtórzeń:", "st4"))
+        stomach.add(samples_row("Scyzoryk","4/12","Ilość serii/powtórzeń:", "st4"))
         stomach.add(samples_row("Unoszenie nóg w zwisie","4/12","Ilość serii/powtórzeń:", "st5"))
         stomach.add(samples_row("Rozciąganie","15 minut","Czas trwania","r2"))
         val adapter_activity1 = samples_adapter(this,legs)
@@ -141,32 +141,32 @@ class Activity2_samples : AppCompatActivity(),AdapterView.OnItemSelectedListener
         }
         binding.activity2SamplesList.setOnItemClickListener{ parent:AdapterView<*> ?, view: View?, position :Int, id: Long ->
             var intent = Intent(this, Activity2_record::class.java)
-            var storage = ""
-            when(i){
-                1 -> storage=legs[position].name
-                2 -> storage=shoulders[position].name
-                3 -> storage=arms[position].name
-                4 -> storage=chest[position].name
-                5 -> storage=back[position].name
-                6 -> storage=stomach[position].name
-                7 -> storage=auto[position].name
-            }
-            intent.putExtra("name",storage)
+            var id =""
+            when (i) {
+                    1 ->
+                        id = legs[position].Id
+                    2 ->
+                        id = shoulders[position].Id
+                    3 ->
+                        id = arms[position].Id
+                    4 ->
+                        id = chest[position].Id
+                    5 ->
+                        id = back[position].Id
+                    6 ->
+                        id = stomach[position].Id
+                    7 ->
+                        id = auto[position].Id
+                    }
+            intent.putExtra("id",id)
             startActivity(intent)
         }
-
-
-
-
     }
-
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
     }
-
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         if(parent==binding.activity2SamplesSpinner)
             i=parent.selectedItemPosition
     }
-
 }
